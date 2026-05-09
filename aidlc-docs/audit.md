@@ -997,3 +997,18 @@ Presenting completion message for approval.
 
 承認待ち。
 **Context**: INCEPTION - Units Generation（改訂版）- Artifacts Complete
+
+## INCEPTION - Units Generation（改訂版）承認
+**Timestamp**: 2026-05-09T00:05:00Z
+**User Input**: "Approve but Hold です。承認しますが次に進まないで。承認したステータスを更新して。"
+**AI Response**: 改訂版 Units Generation 承認。aidlc-state.md を更新（Units Generation = [x]、Current Stage = INCEPTION 完了・改訂版 Units Generation 承認済・CONSTRUCTION PHASE 開始前で一時停止）。CONSTRUCTION PHASE には進まず待機。
+**Context**: INCEPTION - Units Generation（改訂版）- 承認完了、CONSTRUCTION PHASE 待機
+
+## INCEPTION - 改訂版Units Generation に伴う整合性修正
+**Timestamp**: 2026-05-09T00:06:00Z
+**User Input**: "今回のユニット再分割によって、他に修正が必要になった整合性がとれていないドキュメントはない？" → "Aで修正して"
+**AI Response**: 整合性チェック結果、以下2箇所を修正:
+1. `aidlc-docs/inception/requirements/requirements.md` チーム構成セクション: 旧「実質2名 + 画像担当1名（不在がち）」等のネガティブ表現を、役割分担明記形式に変更（A: FE寄り、B: フルスタック+AWS精通、C: 画像制作・非同期稼働）。制約事項の表も「実質2名」を「3名」に修正
+2. `README.md` リポジトリ構成のコメント: 旧ユニット番号（U1 FE / U2 BE / U3 Infra / U4 Assets）を改訂版論理Unit構造に対応（U1 LIFF Shell + U2〜U5 FE / U2〜U6 BE / U7 Infra / U8 Assets、U0 Contractsへの言及追加）
+修正しなかった履歴系: audit.md、requirement-verification-questions.md、legacy-inception/、unit-of-work-plan.md の経緯記録
+**Context**: INCEPTION - ドキュメント整合性修正

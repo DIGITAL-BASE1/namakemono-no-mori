@@ -464,7 +464,7 @@ Level 4: 誰かと関わる
 
 ```
 namekemono-no-mori/
-├── frontend/              # U1: React + Vite + TypeScript
+├── frontend/              # U1 LIFF Shell + U2〜U5 FE実装（React + Vite + TypeScript）
 │   ├── src/
 │   │   ├── pages/
 │   │   ├── components/
@@ -472,30 +472,30 @@ namekemono-no-mori/
 │   │   ├── api/
 │   │   ├── hooks/
 │   │   ├── styles/
-│   │   └── assets/        # U4から配置
+│   │   └── assets/        # U8 Assetsから配置
 │   ├── public/
 │   ├── package.json
 │   ├── vite.config.ts
 │   └── tsconfig.json
 │
-├── backend/               # U2: AWS Lambda (Python)
+├── backend/               # U2〜U6 BE実装（AWS Lambda / Python）
 │   ├── functions/         # Lambda関数
 │   ├── services/          # サービス層
 │   ├── modules/           # 共通モジュール
 │   ├── master_data/       # JSONマスター
 │   ├── tests/
-│   ├── openapi.yaml       # API仕様書（FE/BE共有）
+│   ├── openapi.yaml       # U0 Contracts（FE/BE共有）
 │   ├── requirements.txt
 │   └── pyproject.toml
 │
-├── infra/                 # U3: AWS CDK (TypeScript)
+├── infra/                 # U7 Infrastructure（AWS CDK / TypeScript）
 │   ├── lib/               # CDKスタック
 │   ├── bin/               # CDKエントリ
 │   ├── cdk.json
 │   ├── package.json
 │   └── tsconfig.json
 │
-├── assets/                # U4: イラスト素材（原本）
+├── assets/                # U8 Assets（イラスト素材・原本）
 │   ├── namekemono/
 │   ├── items/
 │   ├── forest/
