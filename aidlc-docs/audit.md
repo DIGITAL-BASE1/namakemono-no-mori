@@ -955,3 +955,45 @@ Presenting completion message for approval.
 **Context**: INCEPTION - execution-plan 整合性修正
 
 ---
+
+## INCEPTION - Units Generation やり直し（外部レビュー反映）
+**Timestamp**: 2026-05-09T00:00:00Z
+**User Input**: （外部AIによる他ハッカソンチームとの比較採点レビュー） "上位勢と比べると Unitが「機能分解」ではなく「担当/レイヤー分解」に寄っているため、AI-DLCのUnit評価では伸びにくいです..."（採点: Unit 17/25, Docs 15/20。U2 Backend肥大化、BE/Infra同一担当、依存関係が大枠に留まる、Assetsは設計加点低等の指摘）
+**AI Response**: レビュー指摘を受け入れ/反論に分類。受け入れ: U2肥大化は機能ドメインで論理分割、U0 Contracts独立化、Unit毎のDoD、Component→Unit マトリクス、優先度Tier、BE/Infra並列性の時間軸分解、Fallback明示。反論: Assets Unit削除（現状維持、性質を明示）、純粋機能分解への転換（二層構造で妥協）、Functional Design未着手段階での設計密度要求（フェーズ定義と整合）。
+**Context**: INCEPTION - Units Generation - 外部レビュー分析
+
+---
+
+## INCEPTION - Units Generation（チーム構成の再確認）
+**Timestamp**: 2026-05-09T00:01:00Z
+**User Input**: （複数往復のチーム構成確認）"私のチームは3名です。ハッカソンのレギュレーション上は最大4名までってだけです。メンバーDはいません。" → "メンバーA（今野さん）はFEよりのスタックで、AWSは初心者です。メンバーB（私）はフルスタックで開発可能で、AWSにも精通しています。"
+**AI Response**: チーム構成確定: 3名（A: FE寄り・AWS初心者、B: フルスタック・AWS精通、C: 画像制作・海外出張中で非同期稼働に適する）。協働スタイル: スタイル1（担当レイヤー分離）を主、スタイル3（ハイブリッド）を保険。AWS絡みの論理Unitは全てBが主担当、FE領域はA、機能ドメインUnitではFE側=A/BE側=Bで分離、U8 Assetsは完全非同期。
+**Context**: INCEPTION - Units Generation - チーム構成・協働スタイル確定
+
+---
+
+## INCEPTION - Units Generation（やり直し方針合意）
+**Timestamp**: 2026-05-09T00:02:00Z
+**User Input**: "OKです。その方向でUnits Generation やり直ししましょう！"
+**AI Response**: やり直し方針に合意。aidlc-state.mdを更新（Units Generation=[ ]に戻す、Current Stage=やり直し中）。改訂版は論理9 Unit × 物理担当マッピングの二層構造。既存のunit-of-work.md / unit-of-work-dependency.md / unit-of-work-story-map.md を全面改訂予定。
+**Context**: INCEPTION - Units Generation - やり直し着手
+
+## INCEPTION - Units Generation プラン承認
+**Timestamp**: 2026-05-09T00:03:00Z
+**User Input**: "はい、承認します"
+**AI Response**: Unit of work plan（改訂版）を承認。Part 2 Generation を開始。
+**Context**: INCEPTION - Units Generation - Part 1 Planning 承認
+
+---
+
+## INCEPTION - Units Generation 成果物生成完了（改訂版）
+**Timestamp**: 2026-05-09T00:04:00Z
+**AI Response**: 改訂版 Units Generation 成果物を全て生成完了。
+- unit-of-work.md: 設計意図（論理Unit×物理担当の二層構造）、チーム構成3名、協働スタイル、代替案検討と却下理由、9論理Unit定義（U0 Contracts, U1 LIFF Shell, U2 Swipe/NMK Core, U3 Forest/Collection/Affinity, U4 Shop/Inventory, U5 Otukai/Bedrock, U6 LINE Notification/Webhook, U7 Infrastructure, U8 Assets）、各UnitにDoD、含まれるコンポーネント、主担当、依存、スケジュール目安。U8は制作分担Unitとして性質明示。リポジトリ構成、コード構成戦略、担当マッピング早見表。
+- unit-of-work-dependency.md: 論理Unit間の依存DAG（Mermaid）、依存関係マトリクス、優先度Tier（1-4）とクリティカルパス、物理担当の時系列並列性分析（A/B/C 各メンバー）、Fallback計画大枠（3ケース）、OpenAPI契約による並列開発の成立条件、環境変数による統合、リスクと緩和策。
+- unit-of-work-story-map.md: 3軸マトリクス（Story × 論理Unit × FE/BE/Infra/Assets）、Component→Unit精密マッピング（7画面/10UI/12Lambda/6モジュール/8インフラ/5テーブル/6マスターデータ/5EventBridge全て）、デモシナリオ（Day1初回起動/Day2朝/Day2夜/Day3朝/3週間後）× 論理Unit対応、全ストーリー・全コンポーネント網羅性検証。
+- execution-plan.md: Units Generation=COMPLETED（改訂版明示）、CONSTRUCTION phase per-unit ループは9 Unit で実施、Tier別着手順（Tier1: U0/U7/U1 → Tier2: U2 → Tier3: U3+U4 並列 → Tier4: U5+U6 並列、U8 独立並列）。
+- unit-of-work-plan.md: 全チェックボックスを[x]に更新。
+
+承認待ち。
+**Context**: INCEPTION - Units Generation（改訂版）- Artifacts Complete
